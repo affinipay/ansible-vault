@@ -1,6 +1,11 @@
 ---
 # handlers file for vault
 
+- name: reload systemd
+  command: systemctl daemon-reload
+  tags:
+    - vault
+
 - name: restart vault
   service: name={{ vault_service_name }} state=restarted
   tags: vault
